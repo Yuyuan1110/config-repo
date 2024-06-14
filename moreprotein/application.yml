@@ -31,3 +31,5 @@ logging:
     root: INFO
     com.moreprotein: DEBUG
 
+server:
+  port : 8081
