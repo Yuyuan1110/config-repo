@@ -1,41 +1,44 @@
 spring:
   application:
     name: moreprotein
+  cloud:
+    config:
+      uri: http://localhost:8888
 
-  datasource:
-    url: jdbc:mysql://localhost:3308/moreprotein
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8444
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: your-keystore-password
+    key-store-type: PKCS12
+    key-alias: my-ssl
 
-  jpa:
+datasource:
+  url: jdbc:mysql://localhost:3308/moreprotein
+  username: root
+  password: root
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+  properties:
     hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.MySQL8Dialect
 
-  data:
-    redis:
-      host: localhost
-      port: 6379
+data:
+  redis:
+    host: localhost
+    port: 6379
 
-  security:
-    user:
-      name: admin
-      password: secret
+security:
+  user:
+    name: admin
+    password: secret
 
 logging:
   level:
     root: INFO
     com.moreprotein: DEBUG
-
-server:
-  port : 8444
-  ssl:
-    enabled: true
-    key-store: classpath:keystore.p12
-    key-store-password: ZAQ!2wsx
-    key-store-type: PKCS12
-    key-alias: my-ssl
