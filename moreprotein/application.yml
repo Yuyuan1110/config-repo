@@ -33,3 +33,9 @@ logging:
 
 server:
   port : 8081
+    ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: ZAQ!2wsx
+    key-store-type: PKCS12
+    key-alias: my-ssl
