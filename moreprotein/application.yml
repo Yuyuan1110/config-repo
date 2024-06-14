@@ -3,12 +3,12 @@ spring:
     name: moreprotein
   cloud:
     config:
-      uri: https://localhost:8888
+      uri: http://localhost:8888
 
 server:
   port: 8444
   ssl:
-    enabled: true
+    enabled: false
     key-store: classpath:keystore.p12
     key-store-password: ZAQ!2wsx
     key-store-type: PKCS12
